@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindic</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">
+    <a href="index.php">
+        <img src="images/logo.png" alt="Mindic">
+    </a>
+</div>
+
+        <ul class="nav-links">
+            <li><a href="#">Acasă</a></li>
+            <li><a href="#stiri">Știri</a></li>
+            <li><a href="#despre">Despre</a></li>
+        </ul>
+
+        <div class="auth-buttons">
+            <a href="register.php" class="signup">Sign Up</a>
+            <a href="login.php" class="login">Log In</a>
+        </div>
+
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+        <h3>BUN VENIT LA SATUL</h3>
+
+        <h1>MINDIC</h1>
+
+        <p class="hero-text">
+    Descoperă adevăratul tezaur tăinuit de acest colțișor de rai.
+</p>
+
+<p class="hero-green">
+    Trăiește o experiență de neuitat!
+</p>
+
+        <a href="#despre" class="hero-btn">
+            Despre
+        </a>
+        
+    </div>
+
+</section>
+
+<!-- STIRI -->
+
+<section class="news-section" id="stiri">
+
+    <h2>ULTIMELE ȘTIRI</h2>
+
+    <a href="#" class="view-all">
+        vezi toate
+    </a>
+
+    <div class="news-slider">
+
+    <button id="prevBtn" class="slider-arrow">
+        &#10094;
+    </button>
+
+    <div class="news-container">
+
+        <div class="news-card">
+            <img id="img1">
+            <div class="card-content">
+                <p id="title1"></p>
+                <button>Vezi</button>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <img id="img2">
+            <div class="card-content">
+                <p id="title2"></p>
+                <button>Vezi</button>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <img id="img3">
+            <div class="card-content">
+                <p id="title3"></p>
+                <button>Vezi</button>
+            </div>
+        </div>
+
+    </div>
+
+    <button id="nextBtn" class="slider-arrow">
+        &#10095;
+    </button>
+
+</div>
+
+</section>
+
+<!-- DESPRE -->
+
+<section class="about-section" id="despre">
+
+    <div class="section-header">
+        <span>OVERLAY</span>
+        <h2>DESPRE LOCALITATE</h2>
+    </div>
+
+    <div class="about-content">
+
+        <div class="about-text">
+
+            <p>
+                Satul Mîndîc este o localitate in Raionul Drochia situat
+                a la latitudinea 48.1511 longitudinea 27.7927 
+                si altitudinea de 154 metri fata de nivelul marii. 
+            </p>
+
+            <p>
+                
+
+                Aceasta localitate este in administrarea or. Drochia. 
+                Conform recensamintului din anul 2004 populatia 
+                este de 3 402 locuitori. 
+
+
+            </p>
+
+            <p>
+                
+                Distanța directă pîna în or. 
+                Drochia este de 12 km. 
+                Distanța directă pîna în or. Chişinău este de 163 km.
+            </p>
+
+            <button class="legend-btn">
+                Legendă
+            </button>
+
+        </div>
+
+       <div class="about-map">
+
+    <a href="https://www.google.com/maps/place/M%C3%AEnd%C3%AEc,+Moldova"
+       target="_blank"
+       class="map-container">
+
+        <img src="images/map.png" alt="Harta Mindic">
+
+        <div class="map-overlay">
+            <span>View Full Map</span>
+        </div>
+
+    </a>
+
+</div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>
+        © <?php echo date("Y"); ?> Mindic.
+        Toate drepturile rezervate.
+    </p>
+
+</footer>
+<script src="js/slider.js"></script>
+</body>
+</html>
