@@ -1,0 +1,82 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f7eaf1;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.menu{
+    width:320px;
+    background:#fff;
+    border-radius:25px;
+    padding:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.user-box{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.avatar{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#e91e63;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.email{
+    color:#666;
+    font-size:15px;
+}
+
+.menu hr{
+    border:none;
+    border-top:1px solid #eee;
+    margin:15px 0;
+}
+
+.menu a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:#444;
+    padding:14px 10px;
+    border-radius:10px;
+    transition:.3s;
+    font-size:18px;
+}
+
+.menu a:hover{
+    background:#f8f8f8;
+}
+
+.menu a i{
+    color:#e91e63;
+    width:20px;
+}
+
+.logout{
+    color:#e53935 !important;
+}
+
+.logout i{
+    color:#e53935 !important;
+}

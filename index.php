@@ -16,6 +16,7 @@ $active_nav = "acasa";
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/produse.css">
 </head>
 <body>
 
@@ -42,12 +43,43 @@ $active_nav = "acasa";
                 <small><?= htmlspecialchars($_SESSION['user_email'] ?? '') ?></small>
               </div>
             </div>
-            <a href="#" class="dropdown-item"><i class="fa-solid fa-user"></i> Profilul meu</a>
-            <a href="#" class="dropdown-item"><i class="fa-solid fa-heart"></i> Favorite</a>
-            <a href="#" class="dropdown-item"><i class="fa-solid fa-bag-shopping"></i> Comenzile mele</a>
-            <div class="dropdown-divider"></div>
-            <a href="logout.php" class="dropdown-item dropdown-item--red"><i class="fa-solid fa-right-from-bracket"></i> Deconectare</a>
-          </div>
+           <div class="navbar__dropdown" id="userDropdown">
+
+    <div class="user-box">
+        <div class="avatar">
+            <?= strtoupper(mb_substr($_SESSION['user'], 0, 1)) ?>
+        </div>
+
+        <span class="email">
+            <?= htmlspecialchars($_SESSION['user_email'] ?? '') ?>
+        </span>
+    </div>
+
+    <hr>
+
+    <a href="dashboard.php" class="dropdown-item">
+        <i class="fa-solid fa-user"></i>
+        Profilul meu
+    </a>
+
+    <a href="dashboard.php?tab=edit" class="dropdown-item">
+        <i class="fa-solid fa-pen-to-square"></i>
+        Schimbă profilul
+    </a>
+
+    <a href="gestionare-conturi.php" class="dropdown-item">
+        <i class="fa-solid fa-users"></i>
+        Gestionare conturi
+    </a>
+
+    <div class="dropdown-divider"></div>
+
+    <a href="logout.php" class="dropdown-item dropdown-item--red">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Deconectare
+    </a>
+
+</div>
         </div>
       <?php else: ?>
         <a href="login.php" class="navbar__user-btn" aria-label="Contul meu">
@@ -58,7 +90,38 @@ $active_nav = "acasa";
       <nav class="navbar__nav">
         <a href="index.php" class="<?= $active_nav==='acasa'?'active':'' ?>">Acasă</a>
         <a href="despre.php" class="<?= $active_nav==='despre'?'active':'' ?>">Despre noi</a>
-        <span class="has-dropdown">Produse</span>
+        <li class="nav-item dropdown">
+
+    <a class="nav-link dropdown-title">
+        Produse
+        <i class="fa-solid fa-chevron-down"></i>
+    </a>
+
+    <div class="mega-menu">
+        <div class="mega-column">
+            <a href="produse.php?cat=medicamente">💊 Medicamente</a>
+            <a href="produse.php?cat=vitamine">🍊 Vitamine și suplimente</a>
+            <a href="produse.php?cat=naturiste">🌿 Produse naturiste</a>
+            <a href="produse.php?cat=ingrijire">🧴 Îngrijire personală</a>
+            <a href="produse.php?cat=mama-copil">👶 Mama și copilul</a>
+        </div>
+
+        <div class="mega-column">
+            <a href="produse.php?cat=ortopedice">🩹 Articole ortopedice</a>
+            <a href="produse.php?cat=dieta">🥗 Dietă</a>
+            <a href="produse.php?cat=plante">🌱 Plante medicinale</a>
+            <a href="produse.php?cat=parafarmaceutice">❤️ Parafarmaceutice</a>
+            <a href="produse.php?cat=tehnica">🩺 Tehnică medicală</a>
+        </div>
+
+        <div class="mega-column">
+            <a href="produse.php?cat=vacanta">🏖️ Trusă medicală de vacanță</a>
+            <a href="produse.php?cat=acasa">🏠 Trusă medicală de acasă</a>
+        </div>
+
+    </div>
+
+</li>
         <a href="servicii.php" class="<?= $active_nav==='servicii'?'active':'' ?>">Servicii</a>
         <a href="contact.php" class="<?= $active_nav==='contact'?'active':'' ?>">Contact</a>
       </nav>
@@ -70,21 +133,21 @@ $active_nav = "acasa";
         </button>
       </div>
 
-      <div class="navbar__actions">
-        <button class="navbar__action-btn" aria-label="Lista de dorințe">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-          </svg>
-          <span class="navbar__badge">0</span>
-        </button>
-        <button class="navbar__action-btn" aria-label="Coș de cumpărături">
+      <a href="favorite.php" class="navbar__action-btn" aria-label="Favorite">
+    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+    </svg>
+    <span class="navbar__badge" id="wishBadge">0</span>
+</a>
+
+        <a href="cos.php" class="navbar__action-btn">
           <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
           </svg>
           <span class="navbar__badge">0</span>
-        </button>
-      </div>
+      </a>
+      </a>
 
     </nav>
   </header>
@@ -102,14 +165,16 @@ $active_nav = "acasa";
           <h1>Sănătatea ta ,<br><span>prioritatea noastră</span></h1>
           <p>Alege din gama noastră variată de produse<br>și beneficiază de servicii de calitate.</p>
           <div class="hero-buttons">
-            <a href="#" class="hero-btn-primary">Vezi produse <i class="fa-solid fa-arrow-right"></i></a>
+           <a href="produse.php" class="hero-btn-primary">
+    Vezi produse <i class="fa-solid fa-arrow-right"></i>
+</a>
             <a href="#" class="hero-btn-secondary">Despre noi</a>
           </div>
         </div>
 
         <div class="hero-mascota">
           <div class="plus-icon">+</div>
-          <img src="images/mascota.png" alt="Elody Farmacie" class="hero-mascota-img" />
+          <img src="images/mascotaa.png" alt="Elody Farmacie" class="hero-mascota-img" />
         </div>
 
         <div class="hero-right">
@@ -204,9 +269,6 @@ $active_nav = "acasa";
           </div>
 
           <section class="popular-products">
-            <div class="popular-left">
-              <img src="images/mascota.png" alt="Elody">
-            </div>
             <div class="popular-right">
               <div class="popular-top">
                 <h2>Produse populare</h2>
@@ -288,8 +350,6 @@ $active_nav = "acasa";
 
     <!-- FOOTER — IN AFARA content-wrapper -->
     <footer class="footer">
-      <img src="images/leaf-left.png" class="leaf leaf-left" alt="">
-      <img src="images/leaf-right.png" class="leaf leaf-right" alt="">
 
       <div class="footer-grid">
         <div class="footer-brand">
@@ -321,14 +381,29 @@ $active_nav = "acasa";
         <div class="footer-social">
           <h3>Urmărește-ne</h3>
          <div class="social-row">
-  <a href="#" aria-label="Facebook">
+
+ <a
+    href="https://www.facebook.com/ElodyFarmacie/?locale=ro_RO"
+    target="_blank"
+    rel="noopener noreferrer"
+>
     <img src="images/facebook.png" alt="Facebook" width="20" height="20">
+
   </a>
-  <a href="#" aria-label="Instagram">
+
+  <a
+    href="https://www.instagram.com/elody_farmacia/"
+    target="_blank"
+    rel="noopener noreferrer"
+>
     <img src="images/instagram.png" alt="Instagram" width="20" height="20">
-  </a>
-  <a href="#" aria-label="YouTube">
-    <img src="images/youtube.png" alt="YouTube" width="20" height="20">
+</a>
+  <a
+    href="https://www.tiktok.com/@elody.tatiana"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    <img src="images/tiktok.png" alt="tiktok" width="20" height="20">
   </a>
 </div>
           <div class="newsletter">
