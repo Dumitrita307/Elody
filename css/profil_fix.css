@@ -1,0 +1,395 @@
+/* ============================================================
+   profil_fix.css — Pune in <head> dupa celelalte CSS-uri
+   <link rel="stylesheet" href="css/profil_fix.css">
+   ============================================================ */
+
+/* Fix layout principal */
+body { margin: 0; padding: 0; background: #f8f8fb; }
+
+.dash-main {
+  display: block !important;
+  min-height: 100vh;
+  background: #f8f8fb;
+  padding: 2.5rem 1.5rem 4rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dash-wrapper {
+  display: grid !important;
+  grid-template-columns: 260px 1fr !important;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+  width: 100%;
+}
+
+/* Sidebar */
+.dash-sidebar {
+  display: block !important;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.07);
+  padding: 2rem 1.2rem;
+  position: sticky;
+  top: 90px;
+  border: 1.5px solid #f0f0f0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dash-avatar-wrap {
+  text-align: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #f0f0f0;
+  margin-bottom: 1.2rem;
+}
+
+.dash-avatar-img {
+  width: 82px !important;
+  height: 82px !important;
+  border-radius: 50% !important;
+  object-fit: cover;
+  border: 3px solid #e91e63 !important;
+  margin-bottom: .6rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dash-avatar-placeholder {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e91e63, #f48fb1);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 900;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto .75rem;
+  font-family: 'Nunito', sans-serif;
+}
+
+.dash-avatar-wrap h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin: 0 0 .25rem;
+  font-family: 'Nunito', sans-serif;
+}
+
+.dash-avatar-wrap span {
+  font-size: .78rem;
+  color: #888;
+  font-family: 'Poppins', sans-serif;
+  word-break: break-all;
+  display: block;
+}
+
+/* Nav sidebar */
+.dash-nav {
+  display: flex !important;
+  flex-direction: column;
+  gap: .3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dash-nav__item {
+  display: flex !important;
+  align-items: center;
+  gap: .7rem;
+  padding: .72rem 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #444;
+  font-size: .88rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  transition: background .15s, color .15s;
+  white-space: nowrap;
+}
+
+.dash-nav__item:hover {
+  background: #fce4ec;
+  color: #e91e63;
+}
+
+.dash-nav__item.active {
+  background: #fce4ec;
+  color: #e91e63;
+}
+
+.dash-nav__item--red { color: #e57373; }
+.dash-nav__item--red:hover { background: #fff5f5; color: #c62828; }
+
+.dash-nav__divider {
+  height: 1px;
+  background: #f0f0f0;
+  margin: .5rem 0;
+}
+
+/* Content */
+.dash-content {
+  display: flex !important;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+/* Alerte */
+.alert {
+  padding: 1rem 1.3rem;
+  border-radius: 14px;
+  font-size: .9rem;
+  font-weight: 600;
+  display: flex !important;
+  align-items: center;
+  gap: .65rem;
+  font-family: 'Poppins', sans-serif;
+}
+.alert--success { background: #f0fdf4; color: #15803d; border: 1.5px solid #bbf7d0; }
+.alert--error   { background: #fff5f5; color: #c62828; border: 1.5px solid #fecaca; }
+
+/* Titlu secțiune */
+.dash-section-header {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+.dash-section-header h1 {
+  font-size: 1.4rem;
+  font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  color: #1a1a2e;
+  margin: 0;
+}
+.dash-section-header h1 i { color: #e91e63; }
+
+.btn-edit-profile {
+  display: inline-flex !important;
+  align-items: center;
+  gap: .4rem;
+  padding: .55rem 1.2rem;
+  background: #fce4ec;
+  color: #e91e63;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: .85rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  white-space: nowrap;
+}
+.btn-edit-profile:hover { background: #f8bbd9; }
+
+/* Profile card */
+.profile-card {
+  background: linear-gradient(135deg, #fce4ec, #fff0f5);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex !important;
+  align-items: center;
+  gap: 2rem;
+  border: 1.5px solid #f8bbd9;
+  position: relative;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.profile-card__avatar {
+  position: relative;
+  flex-shrink: 0;
+}
+.profile-card__avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 20px rgba(233,30,99,.2);
+  display: block;
+}
+.profile-avatar-big {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e91e63, #f48fb1);
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 900;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 20px rgba(233,30,99,.2);
+  font-family: 'Nunito', sans-serif;
+}
+
+.avatar-upload-form { position: absolute; bottom: 0; right: 0; }
+.avatar-upload-btn {
+  background: #e91e63;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: .85rem;
+  box-shadow: 0 2px 8px rgba(233,30,99,.4);
+}
+.avatar-upload-btn:hover { background: #c2185b; }
+
+.profile-card__info h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+  color: #1a1a2e;
+  margin: 0 0 .4rem;
+}
+.profile-member-since {
+  display: inline-flex !important;
+  align-items: center;
+  gap: .4rem;
+  font-size: .83rem;
+  color: #888;
+  font-family: 'Poppins', sans-serif;
+}
+.profile-member-since i { color: #e91e63; }
+
+/* Secțiuni date */
+.dash-section {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.07);
+  padding: 1.6rem 1.8rem;
+  border: 1.5px solid #f0f0f0;
+}
+.dash-section__title {
+  font-size: .98rem;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  color: #1a1a2e;
+  display: flex !important;
+  align-items: center;
+  gap: .6rem;
+  margin: 0 0 1.3rem;
+  padding-bottom: .9rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+.dash-section__title i { color: #e91e63; }
+
+.info-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 1rem;
+}
+.info-item {
+  display: flex !important;
+  flex-direction: column;
+  gap: .3rem;
+  padding: .9rem 1rem;
+  background: #f8f8fb;
+  border-radius: 12px;
+  border: 1.5px solid #f0f0f0;
+}
+.info-item__label {
+  font-size: .72rem;
+  font-weight: 800;
+  color: #e91e63;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-family: 'Poppins', sans-serif;
+}
+.info-item__val {
+  font-size: .92rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Adresă */
+.address-card {
+  display: flex !important;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.3rem;
+  background: #f8f8fb;
+  border-radius: 14px;
+  border: 1.5px solid #f0f0f0;
+}
+.address-card > i { font-size: 1.4rem; color: #e91e63; flex-shrink: 0; }
+.address-card > div { flex: 1; display: flex; flex-direction: column; gap: .2rem; }
+.address-card strong { font-size: .92rem; font-family:'Poppins',sans-serif; }
+.address-card span   { font-size: .82rem; color: #888; font-family:'Poppins',sans-serif; }
+
+.btn-edit-small {
+  background: #fce4ec; color: #e91e63; border: none; border-radius: 50%;
+  width: 34px; height: 34px; display: flex !important; align-items: center;
+  justify-content: center; text-decoration: none; flex-shrink: 0;
+}
+.btn-edit-small:hover { background: #f8bbd9; }
+
+.no-address { text-align: center; padding: 2rem 1rem; color: #888; }
+.no-address i { font-size: 2.5rem; color: #ddd; margin-bottom: .75rem; display: block; }
+.no-address p { font-size: .9rem; margin-bottom: 1rem; font-family:'Poppins',sans-serif; }
+
+.btn-add-address {
+  display: inline-flex !important; align-items: center; gap: .4rem;
+  padding: .65rem 1.3rem; background: #e91e63; color: #fff;
+  border-radius: 50px; text-decoration: none; font-size: .85rem;
+  font-weight: 700; font-family: 'Poppins', sans-serif;
+}
+.btn-add-address:hover { background: #c2185b; }
+
+/* Statistici */
+.stats-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.stat-box {
+  background: #f8f8fb; border-radius: 16px; padding: 1.5rem 1rem;
+  text-align: center; border: 1.5px solid #f0f0f0;
+  transition: transform .2s, box-shadow .2s;
+}
+.stat-box:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(233,30,99,.1); }
+.stat-box i { font-size: 1.6rem; color: #e91e63; margin-bottom: .5rem; display: block; }
+.stat-box span { display: block !important; font-size: 2rem; font-weight: 900; color: #1a1a2e; font-family:'Nunito',sans-serif; line-height:1; margin-bottom:.3rem; }
+.stat-box p { font-size: .78rem; color: #888; font-family:'Poppins',sans-serif; margin: 0; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .dash-wrapper { grid-template-columns: 1fr !important; }
+  .dash-sidebar { position: static !important; }
+}
+@media (max-width: 600px) {
+  .stats-grid { grid-template-columns: 1fr 1fr !important; }
+  .info-grid  { grid-template-columns: 1fr 1fr !important; }
+  .profile-card { flex-direction: column; text-align: center; }
+}
+/* LAYOUT PROFIL */
+
+.dash-main{
+    padding:40px 20px 60px;
+    background:#f8f8fb;
+}
+
+.dash-wrapper{
+    max-width:1400px;
+    margin:0 auto;
+
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:32px;
+
+    align-items:start;
+}

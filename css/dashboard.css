@@ -1,0 +1,775 @@
+/* ============================================================
+   dashboard.css — Stiluri pentru profil.php + schimba-profil.php
+   Include în <head>: <link rel="stylesheet" href="css/dashboard.css">
+   ============================================================ */
+
+/* ── Reset local ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --pink:    #e91e63;
+  --pinkl:   #fce4ec;
+  --pinkm:   #f48fb1;
+  --dark:    #1a1a2e;
+  --gray:    #888;
+  --border:  #f0f0f0;
+  --bg:      #f8f8fb;
+  --white:   #ffffff;
+  --green:   #15803d;
+  --red:     #c62828;
+  --shadow:  0 4px 24px rgba(0,0,0,.07);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LAYOUT PRINCIPAL
+══════════════════════════════════════════════════════════════ */
+.dash-main {
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.dash-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SIDEBAR
+══════════════════════════════════════════════════════════════ */
+.dash-sidebar {
+  background: var(--white);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  padding: 2rem 1.2rem;
+  position: sticky;
+  top: 90px;
+  border: 1.5px solid var(--border);
+}
+
+/* Avatar în sidebar */
+.dash-avatar-wrap {
+  text-align: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 1.2rem;
+}
+
+.dash-avatar-img {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--pink);
+  margin-bottom: .6rem;
+  box-shadow: 0 4px 16px rgba(233,30,99,.2);
+}
+
+.dash-avatar-placeholder {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink), var(--pinkm));
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto .75rem;
+  box-shadow: 0 4px 16px rgba(233,30,99,.25);
+  font-family: 'Nunito', sans-serif;
+}
+
+.dash-avatar-wrap h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin: 0 0 .25rem;
+  font-family: 'Nunito', sans-serif;
+}
+
+.dash-avatar-wrap span {
+  font-size: .78rem;
+  color: var(--gray);
+  font-family: 'Poppins', sans-serif;
+  word-break: break-all;
+}
+
+/* Nav sidebar */
+.dash-nav {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+.dash-nav__item {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: .72rem 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #444;
+  font-size: .88rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  transition: background .15s, color .15s, transform .1s;
+}
+
+.dash-nav__item i {
+  width: 18px;
+  text-align: center;
+  font-size: .95rem;
+}
+
+.dash-nav__item:hover {
+  background: var(--pinkl);
+  color: var(--pink);
+  transform: translateX(3px);
+}
+
+.dash-nav__item.active {
+  background: var(--pinkl);
+  color: var(--pink);
+}
+
+.dash-nav__item--red { color: #e57373; }
+.dash-nav__item--red:hover {
+  background: #fff5f5;
+  color: var(--red);
+  transform: translateX(3px);
+}
+
+.dash-nav__divider {
+  height: 1px;
+  background: var(--border);
+  margin: .5rem 0;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CONTENT AREA
+══════════════════════════════════════════════════════════════ */
+.dash-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── Alerte ── */
+.alert {
+  padding: 1rem 1.3rem;
+  border-radius: 14px;
+  font-size: .9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  font-family: 'Poppins', sans-serif;
+  animation: alertIn .3s ease;
+}
+@keyframes alertIn {
+  from { opacity:0; transform:translateY(-8px); }
+  to   { opacity:1; transform:none; }
+}
+.alert--success {
+  background: #f0fdf4;
+  color: var(--green);
+  border: 1.5px solid #bbf7d0;
+}
+.alert--error {
+  background: #fff5f5;
+  color: var(--red);
+  border: 1.5px solid #fecaca;
+}
+
+/* ── Secțiunea header (titlu + buton editează) ── */
+.dash-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}
+.dash-section-header h1 {
+  font-size: 1.4rem;
+  font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  color: var(--dark);
+}
+.dash-section-header h1 i { color: var(--pink); }
+
+.btn-edit-profile {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .55rem 1.2rem;
+  background: var(--pinkl);
+  color: var(--pink);
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: .85rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  transition: background .15s, transform .1s;
+}
+.btn-edit-profile:hover {
+  background: #f8bbd9;
+  transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PROFIL CARD (poza + nume — din profil.php)
+══════════════════════════════════════════════════════════════ */
+.profile-card {
+  background: linear-gradient(135deg, var(--pinkl), #fff0f5);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  border: 1.5px solid #f8bbd9;
+  position: relative;
+  overflow: hidden;
+}
+.profile-card::before {
+  content: '🌸';
+  position: absolute;
+  right: 2rem;
+  bottom: -1rem;
+  font-size: 5rem;
+  opacity: .12;
+  pointer-events: none;
+}
+
+.profile-card__avatar {
+  position: relative;
+  flex-shrink: 0;
+}
+.profile-card__avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--white);
+  box-shadow: 0 6px 20px rgba(233,30,99,.2);
+}
+.profile-avatar-big {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink), var(--pinkm));
+  color: var(--white);
+  font-size: 2.5rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid var(--white);
+  box-shadow: 0 6px 20px rgba(233,30,99,.2);
+  font-family: 'Nunito', sans-serif;
+}
+
+.avatar-upload-form { position: absolute; bottom: 0; right: 0; }
+.avatar-upload-btn {
+  background: var(--pink);
+  color: var(--white);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: .85rem;
+  box-shadow: 0 2px 8px rgba(233,30,99,.4);
+  transition: transform .15s, background .15s;
+}
+.avatar-upload-btn:hover {
+  transform: scale(1.1);
+  background: #c2185b;
+}
+
+.profile-card__info h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+  color: var(--dark);
+  margin-bottom: .4rem;
+}
+.profile-member-since {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .83rem;
+  color: var(--gray);
+  font-family: 'Poppins', sans-serif;
+}
+.profile-member-since i { color: var(--pink); }
+
+/* ══════════════════════════════════════════════════════════════
+   DASH SECTION (cutii de date — din profil.php)
+══════════════════════════════════════════════════════════════ */
+.dash-section {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 1.6rem 1.8rem;
+  border: 1.5px solid var(--border);
+}
+.dash-section__title {
+  font-size: .98rem;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: 1.3rem;
+  padding-bottom: .9rem;
+  border-bottom: 2px solid var(--border);
+}
+.dash-section__title i { color: var(--pink); }
+
+/* Grid date personale */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  padding: .9rem 1rem;
+  background: var(--bg);
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+}
+.info-item__label {
+  font-size: .72rem;
+  font-weight: 800;
+  color: var(--pink);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-family: 'Poppins', sans-serif;
+}
+.info-item__val {
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--dark);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Adresă */
+.address-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.3rem;
+  background: var(--bg);
+  border-radius: 14px;
+  border: 1.5px solid var(--border);
+}
+.address-card > i {
+  font-size: 1.4rem;
+  color: var(--pink);
+  flex-shrink: 0;
+}
+.address-card > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+.address-card strong { font-size: .92rem; font-family:'Poppins',sans-serif; }
+.address-card span   { font-size: .82rem; color: var(--gray); font-family:'Poppins',sans-serif; }
+
+.btn-edit-small {
+  background: var(--pinkl);
+  color: var(--pink);
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background .15s, transform .1s;
+  flex-shrink: 0;
+}
+.btn-edit-small:hover { background: #f8bbd9; transform: scale(1.1); }
+
+.no-address {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--gray);
+}
+.no-address i { font-size: 2.5rem; color: #ddd; margin-bottom: .75rem; display: block; }
+.no-address p { font-size: .9rem; margin-bottom: 1rem; font-family:'Poppins',sans-serif; }
+
+.btn-add-address {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .65rem 1.3rem;
+  background: var(--pink);
+  color: var(--white);
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: .85rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  transition: background .15s;
+}
+.btn-add-address:hover { background: #c2185b; }
+
+/* Statistici */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.stat-box {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border: 1.5px solid var(--border);
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  cursor: default;
+}
+.stat-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(233,30,99,.1);
+  border-color: var(--pinkm);
+}
+.stat-box i {
+  font-size: 1.6rem;
+  color: var(--pink);
+  margin-bottom: .5rem;
+  display: block;
+}
+.stat-box span {
+  display: block;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--dark);
+  font-family: 'Nunito', sans-serif;
+  line-height: 1;
+  margin-bottom: .3rem;
+}
+.stat-box p {
+  font-size: .78rem;
+  color: var(--gray);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   EDIT CARD (din schimba-profil.php)
+══════════════════════════════════════════════════════════════ */
+.edit-card {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  transition: box-shadow .2s;
+}
+.edit-card:focus-within {
+  box-shadow: 0 6px 30px rgba(233,30,99,.1);
+  border-color: var(--pinkm);
+}
+
+.edit-card-header {
+  padding: 1.2rem 1.8rem;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  background: linear-gradient(90deg, #fff8fb, var(--white));
+}
+.edit-card-header i { color: var(--pink); font-size: 1.1rem; }
+.edit-card-header h2 {
+  font-size: 1rem;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  color: var(--dark);
+  margin: 0;
+}
+
+.edit-card-body { padding: 1.8rem; }
+
+/* ── Avatar upload (schimba-profil) ── */
+.avatar-edit-wrap {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.avatar-preview-big {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--pinkl);
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(233,30,99,.15);
+  transition: transform .2s;
+}
+.avatar-preview-big:hover { transform: scale(1.04); }
+
+.avatar-placeholder-big {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink), var(--pinkm));
+  color: var(--white);
+  font-size: 2.5rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 4px solid var(--pinkl);
+  box-shadow: 0 6px 20px rgba(233,30,99,.15);
+  font-family: 'Nunito', sans-serif;
+}
+
+.avatar-upload-zone {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.avatar-upload-zone > p {
+  font-size: .82rem;
+  color: var(--gray);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+.btn-upload-avatar {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .75rem 1.5rem;
+  background: var(--pink);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: .88rem;
+  cursor: pointer;
+  transition: background .15s, transform .1s;
+  font-family: 'Poppins', sans-serif;
+}
+.btn-upload-avatar:hover {
+  background: #c2185b;
+  transform: translateY(-1px);
+}
+
+/* ── Form grid ── */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+.fg { display: flex; flex-direction: column; gap: .4rem; }
+.fg.span2 { grid-column: 1 / -1; }
+
+.fg label {
+  font-size: .8rem;
+  font-weight: 700;
+  color: #555;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: .02em;
+}
+
+.fg input,
+.fg select,
+.fg textarea {
+  padding: .82rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-size: .92rem;
+  font-family: 'Poppins', sans-serif;
+  background: #fafafa;
+  color: var(--dark);
+  transition: border-color .2s, background .2s, box-shadow .2s;
+  width: 100%;
+}
+
+.fg input:focus,
+.fg select:focus,
+.fg textarea:focus {
+  outline: none;
+  border-color: var(--pink);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(233,30,99,.08);
+}
+
+.fg input:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+.fg textarea {
+  resize: vertical;
+  min-height: 95px;
+  line-height: 1.6;
+}
+
+.fg select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23aaa' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.hint {
+  font-size: .74rem;
+  color: #bbb;
+  font-family: 'Poppins', sans-serif;
+  margin-top: .15rem;
+}
+
+/* ── Parolă ── */
+.pass-wrap { position: relative; }
+.pass-wrap input { padding-right: 3rem; }
+.pass-toggle {
+  position: absolute;
+  right: .9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #bbb;
+  font-size: 1rem;
+  transition: color .15s;
+  padding: 0;
+}
+.pass-toggle:hover { color: var(--pink); }
+
+.pass-strength {
+  height: 5px;
+  border-radius: 3px;
+  background: var(--border);
+  overflow: hidden;
+  margin-top: .5rem;
+}
+.pass-strength-bar {
+  height: 100%;
+  border-radius: 3px;
+  width: 0;
+  transition: width .35s ease, background .35s ease;
+}
+
+/* ── Butoane acțiuni ── */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-save {
+  padding: .9rem 2rem;
+  background: var(--pink);
+  color: var(--white);
+  border: none;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: .95rem;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: background .15s, transform .1s, box-shadow .15s;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+.btn-save:hover {
+  background: #c2185b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233,30,99,.3);
+}
+.btn-save:active { transform: translateY(0); }
+
+.btn-cancel {
+  padding: .9rem 1.6rem;
+  background: var(--white);
+  color: var(--gray);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: .9rem;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  transition: border-color .15s, color .15s;
+}
+.btn-cancel:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .dash-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .dash-sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 1.5rem;
+  }
+  .dash-avatar-wrap {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-right: 2px solid var(--border);
+    padding-right: 1.5rem;
+  }
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .dash-main { padding: 1.2rem 1rem 3rem; }
+  .dash-sidebar {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .dash-avatar-wrap {
+    border-right: none;
+    padding-right: 0;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 1rem;
+  }
+  .form-grid { grid-template-columns: 1fr; }
+  .fg.span2 { grid-column: 1; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .profile-card { flex-direction: column; text-align: center; }
+  .info-grid { grid-template-columns: 1fr 1fr; }
+  .edit-card-body { padding: 1.2rem; }
+  .form-actions { flex-direction: column; }
+  .btn-save, .btn-cancel { width: 100%; justify-content: center; }
+  .avatar-edit-wrap { flex-direction: column; align-items: center; text-align: center; }
+}

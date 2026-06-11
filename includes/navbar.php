@@ -3,8 +3,7 @@
       <a href="index.php" class="navbar__logo">
         <img src="images/logo.png" alt="Elody Farmacie" class="navbar__logo-img" />
       </a>
-
-      <?php if (isset($_SESSION['user'])): ?>
+    <?php if (isset($_SESSION['user'])): ?>
         <div class="navbar__user-wrap">
           <button class="navbar__user-btn" id="userBtn">
             <img src="images/user.png" alt="User" class="navbar__user-img" />
@@ -34,15 +33,14 @@
       <nav class="navbar__nav">
         <a href="index.php" class="<?= $active_nav==='acasa'?'active':'' ?>">Acasă</a>
         <a href="despre.php" class="<?= $active_nav==='despre'?'active':'' ?>">Despre noi</a>
-      <li class="nav-item dropdown">
+       <li class="nav-item dropdown">
 
-    <a href="produse.php" class="nav-link">
+    <a class="nav-link dropdown-title">
         Produse
         <i class="fa-solid fa-chevron-down"></i>
     </a>
 
     <div class="mega-menu">
-    
         <div class="mega-column">
             <a href="produse.php?cat=medicamente">💊 Medicamente</a>
             <a href="produse.php?cat=vitamine">🍊 Vitamine și suplimente</a>
@@ -67,7 +65,6 @@
     </div>
 
 </li>
-        
         <a href="servicii.php" class="<?= $active_nav==='servicii'?'active':'' ?>">Servicii</a>
         <a href="contact.php" class="<?= $active_nav==='contact'?'active':'' ?>">Contact</a>
       </nav>
@@ -96,3 +93,5 @@
       </div>
     </nav>
   </header>
+
+ 

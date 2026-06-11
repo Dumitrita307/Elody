@@ -16,5 +16,14 @@
         "phone": "+373 79452626",
         "password": "$2y$10$hzuYkq.J8W7.TJiBjTCzcOlGjdFQmr.QXtvmaHty4dOPySOjN\/2Iu",
         "created_at": "2026-06-06 23:11:28"
+    },
+    {
+        "id": "usr_6a2a380ea14a74.46097144",
+        "first_name": "Melissa",
+        "last_name": "Buruiana",
+        "email": "buruianamelissa15@gmail.com",
+        "phone": "+373 79342941",
+        "password": "$2y$10$e0oUI1ph8STzFAu7xzhj2.1VF3FoHaun52hFFnz9J3LOdZQv5Yj22",
+        "created_at": "2026-06-11 06:22:38"
     }
 ]

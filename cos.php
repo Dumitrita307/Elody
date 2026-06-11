@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'php/lang.php';
+$lang = $limba ?? 'ro';
 
 $page_title = "Coș de cumpărături";
 $active_nav = "";
@@ -49,11 +50,11 @@ $active_nav = "";
         <a href="login.php" class="navbar__user-btn"><img src="images/user.png" alt="User" class="navbar__user-img" /></a>
       <?php endif; ?>
       <nav class="navbar__nav">
-        <a href="index.php"><?= t('acasa') ?></a>
-        <a href="despre.php"><?= t('despre') ?></a>
-        <a href="produse.php"><?= t('produse') ?></a>
-        <a href="servicii.php"><?= t('servicii') ?></a>
-        <a href="contact.php"><?= t('contact') ?></a>
+        <a href="index.php"><?= t('Acasa') ?></a>
+        <a href="despre.php"><?= t('Despre noi') ?></a>
+        <a href="produse.php"><?= t('Produse') ?></a>
+        <a href="servicii.php"><?= t('Servicii') ?></a>
+        <a href="contact.php"><?= t('Contact') ?></a>
       </nav>
       <div class="navbar__search">
         <input type="text" placeholder="<?= t('cauta') ?>" />

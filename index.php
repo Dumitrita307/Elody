@@ -43,43 +43,17 @@ $active_nav = "acasa";
                 <small><?= htmlspecialchars($_SESSION['user_email'] ?? '') ?></small>
               </div>
             </div>
-           <div class="navbar__dropdown" id="userDropdown">
-
-    <div class="user-box">
-        <div class="avatar">
-            <?= strtoupper(mb_substr($_SESSION['user'], 0, 1)) ?>
-        </div>
-
-        <span class="email">
-            <?= htmlspecialchars($_SESSION['user_email'] ?? '') ?>
-        </span>
-    </div>
-
-    <hr>
-
-    <a href="dashboard.php" class="dropdown-item">
-        <i class="fa-solid fa-user"></i>
-        Profilul meu
-    </a>
-
-    <a href="dashboard.php?tab=edit" class="dropdown-item">
-        <i class="fa-solid fa-pen-to-square"></i>
-        Schimbă profilul
-    </a>
-
-    <a href="gestionare-conturi.php" class="dropdown-item">
-        <i class="fa-solid fa-users"></i>
-        Gestionare conturi
-    </a>
-
-    <div class="dropdown-divider"></div>
-
-    <a href="logout.php" class="dropdown-item dropdown-item--red">
-        <i class="fa-solid fa-right-from-bracket"></i>
-        Deconectare
-    </a>
-
-</div>
+            <a href="dashboard.php" class="dropdown-item">
+  <i class="fa-solid fa-user"></i> Profilul meu
+</a>
+<a href="dashboard.php?tab=edit" class="dropdown-item">
+  <i class="fa-solid fa-pen-to-square"></i> Schimbă profilul
+</a>
+<div class="dropdown-divider"></div>
+<a href="logout.php" class="dropdown-item dropdown-item--red">
+  <i class="fa-solid fa-right-from-bracket"></i> Deconectare
+</a>
+          </div>
         </div>
       <?php else: ?>
         <a href="login.php" class="navbar__user-btn" aria-label="Contul meu">

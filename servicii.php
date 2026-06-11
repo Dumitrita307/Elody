@@ -2,6 +2,7 @@
 session_start();
 $page_title = "Servicii";
 $active_nav = "servicii";
+
 ?>
 <!DOCTYPE html>
 <html lang="ro">
